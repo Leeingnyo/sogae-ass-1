@@ -36,10 +36,16 @@ function signup(username, password){
 		,success        : function(data){
 			if (data.error_code == -1)
 				$('#message').html('The user name should be 5~20 characters long. Please try again.')
+			else
 			if (data.error_code == -2)
 				$('#message').html('The password should be 8~20 characters long. Please try again.')
+			else
 			if (data.error_code == -3)
 				$('#message').html('This user name already exists. Please try again.')
+			else{
+				console.log('login');
+				window.location.href='/'
+			}
 		}
 		,error          : function(result){
 			console.log('에러')
