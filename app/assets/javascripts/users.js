@@ -11,8 +11,10 @@ function login(username, password){
 		,contentType	: 'application/json; charset=utf-8'
 		,dataType	: 'json'
 		,success	: function(data){
-			if (data.error_code == -4)
+			if (data.error_code == -4){
 				$('#message').html('Invalid username and password combination. Please try again.')
+				$('#message').addClass('alert');
+			}
 			else{
 				console.log('login');
 				window.location.href='/'
@@ -34,14 +36,20 @@ function signup(username, password){
 		,contentType	: 'application/json; charset=utf-8'
 		,dataType	: 'json'
 		,success	: function(data){
-			if (data.error_code == -1)
+			if (data.error_code == -1){
 				$('#message').html('The user name should be 5~20 characters long. Please try again.')
+				$('#message').addClass('alert');
+			}
 			else
-			if (data.error_code == -2)
+			if (data.error_code == -2){
 				$('#message').html('The password should be 8~20 characters long. Please try again.')
+				$('#message').addClass('alert');
+			}
 			else
-			if (data.error_code == -3)
+			if (data.error_code == -3){
 				$('#message').html('This user name already exists. Please try again.')
+				$('#message').addClass('alert');
+			}
 			else{
 				console.log('login');
 				window.location.href='/'
