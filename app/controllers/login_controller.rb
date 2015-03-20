@@ -16,4 +16,9 @@ class LoginController < ApplicationController
 			render json: { error_code: -4 }
 		end
 	end
+
+	def logout
+		session[:user] = nil
+		redirect_to '/'
+	end
 end

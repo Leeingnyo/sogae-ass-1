@@ -2,6 +2,19 @@ require 'securerandom'
 require 'digest'
 
 class UsersController < ApplicationController
+	def index
+		if session[:user]
+			@user = User.find session[:user]
+		else
+			@user = nil
+		end
+		if @user
+			render :index
+		else
+			render :before
+		end
+	end
+
 	def create
 		username = params[:username]
 		password = params[:password]
