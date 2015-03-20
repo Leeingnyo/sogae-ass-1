@@ -2,15 +2,15 @@
 // All this logic will automatically be available in application.js.
 function login(username, password){
 	$.ajax({
-		url     : 'login'
-		,type   : 'POST'
-		,data   : JSON.stringify({
+		url	: 'login'
+		,type	: 'POST'
+		,data	: JSON.stringify({
 			username: username,
 			password: password,
 		})
-		,contentType    : 'application/json; charset=utf-8'
-		,dataType       : 'json'
-		,success        : function(data){
+		,contentType	: 'application/json; charset=utf-8'
+		,dataType	: 'json'
+		,success	: function(data){
 			if (data.error_code == -4)
 				$('#message').html('Invalid username and password combination. Please try again.')
 			else{
@@ -18,22 +18,22 @@ function login(username, password){
 				window.location.href='/'
 			}
 		}
-		,error          : function(result){
+		,error	: function(result){
 			console.log('에러')
 		}
 	})
 }
 function signup(username, password){
 	$.ajax({
-		url     : 'signup'
-		,type   : 'POST'
-		,data   : JSON.stringify({
+		url	: 'signup'
+		,type	: 'POST'
+		,data	: JSON.stringify({
 			username: username,
 			password: password,
 		})
-		,contentType    : 'application/json; charset=utf-8'
-		,dataType       : 'json'
-		,success        : function(data){
+		,contentType	: 'application/json; charset=utf-8'
+		,dataType	: 'json'
+		,success	: function(data){
 			if (data.error_code == -1)
 				$('#message').html('The user name should be 5~20 characters long. Please try again.')
 			else
@@ -47,7 +47,7 @@ function signup(username, password){
 				window.location.href='/'
 			}
 		}
-		,error          : function(result){
+		,error	: function(result){
 			console.log('에러')
 		}
 	})
