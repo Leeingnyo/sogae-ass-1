@@ -47,5 +47,6 @@ class UsersController < ApplicationController
 		User.all.each do |x|
 			x.destroy
 		end
+		render nothing: true
 	end
 end
