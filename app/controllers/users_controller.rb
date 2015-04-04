@@ -2,6 +2,8 @@ require 'securerandom'
 require 'digest'
 
 class UsersController < ApplicationController
+	skip_before_filter :verify_authenticity_token
+
 	def index
 		if session[:user]
 			@user = User.find session[:user]
